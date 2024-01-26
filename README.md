@@ -1,11 +1,13 @@
 # This project contains a todo application 
 
 # Features :
-- [ ] user can create a todo
-- [ ] user can delete existing todo
-- [ ] user can mark done an existing todo
-- [ ] user can look at existing todo
+- [ ] anyone can create a todo
+- [ ] anyone can delete existing todo
+- [ ] anyone can mark done an existing todo
+- [ ] anyone can look at existing todos
+- [ ] anyone can edit their todo
 - [ ] styled
 - [ ] user signup/login
+
 
 # Locally setting up :
