@@ -1,4 +1,4 @@
-# This project contains a todo application 
+# A Todo Application 
 
 # Features :
 - [ ] anyone can create a todo
