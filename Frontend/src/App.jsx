@@ -1,15 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import CreateTodo from "./Components/CreateTodo";
+import Todos from "./components/Todos";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos, setTodos] = useState([]);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
 
-  return (
-    <>
-    </>
-  )
+
+const getData = async() => {
+  let todos = await fetch("http://localhost:3000/", {method: 'GET'});
+  let jsonTodos = await todos.json();
+  setTodos(jsonTodos);
 }
 
-export default App
+const addData = async() =>{
+ await fetch("http://localhost:3000/", {  method : 'POST',  headers : {   "Content-type" : "application/json"} , body : JSON.stringify({ title : title, description: description
+  })});
+
+  setTitle('');
+  setDescription('');
+  getData();
+}
+  return (
+    <div>
+      <CreateTodo title={title} description={description} setTitle={setTitle} setDescription={setDescription} addData={addData}/>
+      {todos.map((todo) => (<Todos title={todo.title} description={todo.description} _id={todo._id}/>))}
+    </div>
+  )
+}
+export default App;
